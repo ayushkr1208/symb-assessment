@@ -11,10 +11,10 @@ A full-stack web application for efficiently allocating classrooms for exams usi
 
 ## 🌐 Live Demo
 
-| Service | URL |
-|---------|-----|
-| **Frontend** | [Vercel Deployment](https://your-app.vercel.app) |
-| **Backend API** | [Render Deployment](https://your-api.onrender.com) |
+| Service | URL | Platform |
+|---------|-----|----------|
+| **Frontend** | [https://assessment-five-mauve.vercel.app](https://assessment-five-mauve.vercel.app) | Vercel |
+| **Backend API** | [https://assessment-unqv.vercel.app](https://assessment-unqv.vercel.app) | Vercel |
 
 ---
 
@@ -38,7 +38,7 @@ flowchart TB
         RQ[React Query]
     end
     
-    subgraph Backend["Backend (Render)"]
+    subgraph Backend["Backend (Vercel)"]
         API[Express.js API]
         CTRL[Controllers]
         ALGO[Greedy Allocator]
@@ -128,7 +128,7 @@ erDiagram
 
 ## 🔌 API Endpoints
 
-Base URL: `http://localhost:3000` (local) | `https://your-api.onrender.com` (production)
+Base URL: `http://localhost:3000` (local) | `https://assessment-unqv.vercel.app` (production)
 
 ### Health Check
 ```http
@@ -269,15 +269,18 @@ npm run dev
 
 ## 🌍 Deployment
 
-### Backend (Render)
+Both frontend and backend are deployed on **Vercel**.
 
-1. Create a new **Web Service** on [Render](https://render.com)
-2. Connect your GitHub repository
-3. Configure:
+### Backend (Vercel)
+
+1. Import project on [Vercel](https://vercel.com)
+2. Configure:
    - **Root Directory:** `backend`
+   - **Framework Preset:** Other
    - **Build Command:** `npm install`
-   - **Start Command:** `npm start`
-4. Add environment variable:
+   - **Output Directory:** *(leave empty)*
+   - **Install Command:** `npm install`
+3. Add environment variable:
    - `MONGODB_URI` = Your MongoDB Atlas connection string
 
 ### Frontend (Vercel)
@@ -285,9 +288,9 @@ npm run dev
 1. Import project on [Vercel](https://vercel.com)
 2. Configure:
    - **Root Directory:** `frontned`
-   - **Framework:** Next.js
+   - **Framework Preset:** Next.js
 3. Add environment variable:
-   - `NEXT_PUBLIC_API_URL` = Your Render backend URL
+   - `NEXT_PUBLIC_API_URL` = `https://assessment-unqv.vercel.app`
 
 ---
 
